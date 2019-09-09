@@ -1,0 +1,8 @@
+{
+    "available": [10, 5, 7],
+    "process": [{"id":"p0", "allocated":[0, 1, 0], "max":[7, 5, 3]},
+                {"id":"p1", "allocated":[2, 0, 0], "max":[3, 2, 2]},
+                {"id":"p2", "allocated":[3, 0, 2], "max":[9, 0, 2]},
+                {"id":"p3", "allocated":[2, 1, 1], "max":[2, 2, 2]}
+              ]
+}
