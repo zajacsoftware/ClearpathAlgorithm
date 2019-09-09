@@ -2,7 +2,7 @@
 const RECURSION_LIMIT = 5000; 
 
 const ClearpathAlgorithm = (allocated, max, resources) => {
-
+    // We want to process this algorithm asynchronously because without limiting the input values we cannot predict how many steps and how long it may take to complete.
     return new Promise((resolve, reject) => {
 
         if (allocated.length != max.length) {
@@ -44,8 +44,8 @@ const ClearpathAlgorithm = (allocated, max, resources) => {
         }
 
         let call_count = 0;
-        let find_sequence = (finished, allocated, max, need, work, process_path) => {
-            call_count++;
+        let find_sequence = (finished, allocated, need, work, process_path) => {
+            call_count++; 
             if(call_count >= RECURSION_LIMIT)  {
                 reject("Error, Recursion limit reached.");
                 return;
@@ -60,12 +60,12 @@ const ClearpathAlgorithm = (allocated, max, resources) => {
 
                     process_path.push(i);
 
-                    find_sequence(finished, allocated, max, need, work, process_path);
+                    find_sequence(finished, allocated, need, work, process_path);
                 }
             }
         }
 
-        find_sequence(finished, allocated, max, need, work, process_path);
+        find_sequence(finished, allocated, need, work, process_path);
    
         if (process_path.length === total_process) {
             resolve(process_path);
